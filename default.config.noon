@@ -1,0 +1,10 @@
+glosbe
+  translate
+    author  true
+  examples
+    page  1
+    size  1
+usage  true
+merge  true
+theme  square
+verbose  true
