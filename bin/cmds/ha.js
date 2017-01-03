@@ -1,0 +1,1 @@
+'use strict';/* eslint no-unused-vars: 0 */exports.command='ha <command>';exports.desc='Hablaa functions';exports.builder=function(yargs){return yargs.commandDir('hablaa');};exports.handler=function(argv){};

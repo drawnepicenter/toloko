@@ -1,0 +1,1 @@
+'use strict';/* eslint no-unused-vars: 0 */exports.command='yx <command>';exports.desc='Yandex functions';exports.builder=function(yargs){return yargs.commandDir('yandex');};exports.handler=function(argv){};
