@@ -1,13 +1,10 @@
 /* eslint max-len: 0 */
 const chalk = require('chalk')
 const fs = require('fs-extra')
-const moment = require('moment')
 const noon = require('noon')
 const ts = require('term-size')
 const wrap = require('wrap-ansi')
 const xml2js = require('xml2js')
-
-const CFILE = `${process.env.HOME}/.iloa.noon`
 
 /**
   * The tools module provides useful repetitive tasks
