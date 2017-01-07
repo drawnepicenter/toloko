@@ -317,13 +317,266 @@ describe('root commands', () => {
   })
 })
 
-describe('encyclopedia-of-life', () => {
-  before((done) => {
-    fs.mkdirpSync('test/output')
-    done()
+describe('glosbe commands', () => {
+    before((done) => {
+      fs.mkdirpSync('test/output')
+      done()
+    })
+    after((done) => {
+      fs.removeSync('test/output')
+      done()
+    })
+    describe('translate', () => {
+      it('shows output', (done) => {
+        child.exec(`node ${process.cwd()}/bin/toloko.js gl tr -s eng -t spa -o ${process.cwd()}/test/output/gl-tr.json hello > test/output/gl-tr.out`, (err) => {
+          const stdout = fs.readFileSync('test/output/gl-tr.out', 'utf8')
+          const obj = {
+            "type": "glosbe",
+            "function": "translate",
+            "src": "http://glosbe.com",
+            "phrase": "hello",
+            "from": "en",
+            "dest": "es",
+            "tuc": {
+              "phrase0": {
+                "text": "hola",
+                "language": "es",
+              },
+              "phrase1": {
+                "text": "aló",
+                "language": "es",
+              },
+              "phrase2": {
+                "text": "buenos días",
+                "language": "es",
+              },
+              "phrase3": {
+                "text": "dígame",
+                "language": "es",
+              },
+              "phrase4": {
+                "text": "bueno",
+                "language": "es",
+              },
+              "phrase5": {
+                "text": "diga",
+                "language": "es",
+              },
+              "phrase6": {
+                "text": "qué tal",
+                "language": "es",
+              },
+              "phrase7": {
+                "text": "oigo",
+                "language": "es",
+              },
+              "phrase8": {
+                "text": "buenas tardes",
+                "language": "es",
+              },
+              "phrase9": {
+                "text": "oiga",
+                "language": "es",
+              },
+              "phrase10": {
+                "text": "si",
+                "language": "es",
+              },
+              "phrase11": {
+                "text": "Hola",
+                "language": "es",
+              },
+              "phrase12": {
+                "text": "buenas noches",
+                "language": "es",
+              },
+              "phrase13": {
+                "text": "como estás",
+                "language": "es",
+              },
+              "phrase14": {
+                "text": "cómo estás",
+                "language": "es",
+              },
+              "phrase15": {
+                "text": "dime",
+                "language": "es",
+              },
+              "phrase16": {
+                "text": "eh",
+                "language": "es",
+              },
+              "phrase17": {
+                "text": "ola",
+                "language": "es",
+              },
+              "phrase18": {
+                "text": "oye",
+                "language": "es",
+              },
+            },
+            "meanings": {
+              "meaning0": {
+                "language": "en",
+                "text": "<i>An expression of puzzlement or discovery.</i>",
+              },
+              "meaning1": {
+                "language": "en",
+                "text": "is anyone there?",
+              },
+              "meaning2": {
+                "language": "en",
+                "text": "saludo con la boca",
+              },
+              "meaning3": {
+                "language": "es",
+                "text": "saludo",
+              },
+              "meaning4": {
+                "language": "es",
+                "text": "Expresión de saludo utilizada entre dos o más personas de trato familiar.",
+              },
+              "meaning5": {
+                "language": "en",
+                "text": "Expression of greeting used by two or more people who meet each other.",
+              },
+            },
+          }
+          const json = fs.readJsonSync(`${process.cwd()}/test/output/gl-tr.json`)
+          expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[a-z0-9 \[\]\(\)&,\.<>→\/;:!’áóéí?=\-]*/mig)
+          expect(json).to.deep.equal(obj)
+          done(err)
+        })
+      })
+    })
+    describe('examples', () => {
+      it('shows output', (done) => {
+        child.exec(`node ${process.cwd()}/bin/toloko.js gl ex -s eng -t spa -o ${process.cwd()}/test/output/gl-ex.json hello > test/output/gl-ex.out`, err => {
+          const stdout = fs.readFileSync('test/output/gl-ex.out', 'utf8')
+          const obj = {
+            "type": "glosbe",
+            "function": "examples",
+            "src": "http://glosbe.com",
+            "examples": {
+              "example0": {
+                  "author": 31,
+                  "first": "I gave something, hello",
+                  "second": "Di algo, hola",
+              },
+            },
+          }
+          const json = fs.readJsonSync(`${process.cwd()}/test/output/gl-ex.json`)
+          expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[a-z0-9 \[\],\.\-→]*/mig)
+          expect(json).to.deep.equal(obj)
+          done(err)
+        })
+      })
+    })
+})
+
+describe('hablaa commands', () => {
+    before((done) => {
+      fs.mkdirpSync('test/output')
+      done()
+    })
+    after((done) => {
+      fs.removeSync('test/output')
+      done()
+    })
+    describe('translate', () => {
+      it('shows output', (done) => {
+        child.exec(`node ${process.cwd()}/bin/toloko.js ha tr -s eng -t spa -o ${process.cwd()}/test/output/ha-tr.json hello > ${process.cwd()}/test/output/ha-tr.out`, err => {
+          const stdout = fs.readFileSync('test/output/ha-tr.out', 'utf8')
+          const obj = {
+            "type": "hablaa",
+            "function": "translate",
+            "src": "http://hablaa.com",
+            "result0": {
+                "text": "¡Hola",
+                "pos": {
+                    "code": null,
+                    "title": null,
+                },
+                "source": "hablaa",
+            },
+            "result1": {
+                "text": "hola! saludo",
+                "pos": {
+                    "code": null,
+                    "title": null,
+                },
+                "source": "Hablaa.com",
+            },
+            "result2": {
+                "text": "¡hola",
+                "pos": {
+                    "code": null,
+                    "title": null,
+                },
+                "source": "Hablaa.com",
+            },
+          }
+          const json = fs.readJsonSync(`${process.cwd()}/test/output/ha-tr.json`)
+          expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[a-z\[\] \-\.→!¡]*/mig)
+          expect(json).to.deep.equal(obj)
+          done(err)
+        })
+      })
+    })
+    describe('list', () => {
+      it('shows output', (done) => {
+        child.exec(`node ${process.cwd()}/bin/toloko.js ha ls > ${process.cwd()}/test/output/ha-ls.out`, err => {
+          const stdout = fs.readFileSync('test/output/ha-ls.out', 'utf8')
+          expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[a-z\[\] →\-å]*/mig)
+          done(err)
+      })
+    })
   })
-  after((done) => {
-    fs.removeSync('test/output')
-    done()
+})
+
+describe('yandex commands', () => {
+    before((done) => {
+      fs.mkdirpSync('test/output')
+      done()
+    })
+    after((done) => {
+      fs.removeSync('test/output')
+      done()
+    })
+    describe('translate', () => {
+      it('shows output', (done) => {
+        child.exec(`node ${process.cwd()}/bin/toloko.js yx tr -d en-ru -o ${process.cwd()}/test/output/yx-tr.json hello > ${process.cwd()}/test/output/yx-tr.out`, err => {
+          const stdout = fs.readFileSync('test/output/yx-tr.out', 'utf8')
+          const obj = {
+            "type": "yandex",
+            "function": "translate",
+            "src": "http://translate.yandex.com",
+            "lang": "en-ru",
+            "result0": "привет",
+          }
+          const json = fs.readJsonSync(`${process.cwd()}/test/output/yx-tr.json`)
+          expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[a-z\[\] \-\.→!¡]*/mig)
+          expect(json).to.deep.equal(obj)
+          done(err)
+        })
+      })
+    })
+    describe('list', () => {
+      it('shows output', (done) => {
+        child.exec(`node ${process.cwd()}/bin/toloko.js yx ls > ${process.cwd()}/test/output/yx-ls.out`, err => {
+          const stdout = fs.readFileSync('test/output/yx-ls.out', 'utf8')
+          expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[a-z\[\] →\-å]*/mig)
+          done(err)
+      })
+    })
+  })
+  describe('detect language', () => {
+    it('shows output', (done) => {
+      child.exec(`node ${process.cwd()}/bin/toloko.js yx dt привет > ${process.cwd()}/test/output/yx-dt.out`, err => {
+        const stdout = fs.readFileSync('test/output/yx-dt.out', 'utf8')
+        expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[\[\]a-z →]*/mig)
+        done(err)
+      })
+    })
   })
 })
