@@ -60,10 +60,6 @@ Here are some examples:
 
 See the [tests](https://github.com/drawnepicenter/toloko/blob/master/test/test.es6) for more.
 
-## Trinity
-
-Toloko is one of three command line utilities along with [Leximaven](https://github.com/drawnepicenter/leximaven) and [iloa](https://github.com/drawnepicenter/iloa) that puts enormous power at your fingertips. Try them alone or together!
-
 ## Resources
 
 These following links can help you use Toloko or perform related tasks.
@@ -77,8 +73,14 @@ These following links can help you use Toloko or perform related tasks.
 
 ## Gratitude
 
-Many thanks to all contributors to the gems used in this project! And thanks to the creators and maintainers of the APIs that this tool consumes. Glosbe, Hablaa and Yandex are awesome!
+Many thanks to all contributors to the libraries used in this project! And thanks to the creators and maintainers of the APIs that this tool consumes. Glosbe, Hablaa and Yandex are awesome!
+
+Powered by [Glosbe](http://glosbe.com)
 
 Powered by [Hablaa](http://hablaa.com/)
 
 Powered by [Yandex.Translate](http://translate.yandex.com)
+
+### Take Command
+
+See [take-command](https://github.com/drawnepicenter/take-command).
