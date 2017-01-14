@@ -10,7 +10,8 @@ const noon = require('noon')
 
 const CFILE = `${process.env.HOME}/.toloko.noon`
 
-exports.command = 'tr <query>'
+exports.command = 'translate <query>'
+exports.aliases = ['trans', 'tr']
 exports.desc = 'Translate a word'
 exports.builder = {
   out: {

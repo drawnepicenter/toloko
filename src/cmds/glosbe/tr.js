@@ -15,7 +15,8 @@ function labelWord(word, theme) {
   if (word.language) themes.label(theme, 'down', 'Language', word.language)
 }
 
-exports.command = 'tr <query>'
+exports.command = 'translate <query>'
+exports.aliases = ['trans', 'tr']
 exports.desc = 'Translate a word'
 exports.builder = {
   out: {

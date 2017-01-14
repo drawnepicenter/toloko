@@ -10,7 +10,8 @@ const noon = require('noon')
 
 const CFILE = `${process.env.HOME}/.toloko.noon`
 
-exports.command = 'ls'
+exports.command = 'list'
+exports.aliases = ['langs', 'ls']
 exports.desc = 'List supported languages'
 exports.builder = {}
 exports.handler = (argv) => {

@@ -10,7 +10,8 @@ const noon = require('noon')
 
 const CFILE = `${process.env.HOME}/.toloko.noon`
 
-exports.command = 'dt <query>'
+exports.command = 'detect <query>'
+exports.aliases = ['dt']
 exports.desc = 'Detect language'
 exports.builder = {
   hint: {
