@@ -293,7 +293,7 @@ describe('root commands', () => {
     it('shows usage', (done) => {
       child.exec(`node ${__dirname}/../bin/toloko.js --help > test/output/help.out`, (err) => {
         const stdout = fs.readFileSync('test/output/help.out', 'utf8')
-        expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/^[\s_\(\)\/\\`,]*\sUsage:\s[a-z \/\.<>\[\]]*\s*Commands:\s[a-z <>\s|]*Options:\s[ -a-z\s]*\[boolean\]\s*/mig)
+        expect(stdout.replace(/(\r\n|\n|\r)\s?/gm, '\n')).to.match(/[_ \/\\']*Usage:\s[a-z\/\. <>\[\]]*\s*Commands:\s*[a-z \[:\]\s<>,]*Options:\s*[a-z\-, \[\]\s]*/mig)
         done(err)
       })
     })
@@ -383,37 +383,41 @@ describe('glosbe commands', () => {
                 "language": "es",
               },
               "phrase11": {
-                "text": "Hola",
+                "text": "¡Hola! ¿Hay alguien?",
                 "language": "es",
               },
               "phrase12": {
-                "text": "buenas noches",
+                "text": "Hola",
                 "language": "es",
               },
               "phrase13": {
-                "text": "como estás",
+                "text": "buenas noches",
                 "language": "es",
               },
               "phrase14": {
-                "text": "cómo estás",
+                "text": "como estás",
                 "language": "es",
               },
               "phrase15": {
-                "text": "dime",
+                "text": "cómo estás",
                 "language": "es",
               },
               "phrase16": {
-                "text": "eh",
+                "text": "dime",
                 "language": "es",
               },
               "phrase17": {
-                "text": "ola",
+                "text": "eh",
                 "language": "es",
               },
               "phrase18": {
-                "text": "oye",
+                "text": "ola",
                 "language": "es",
               },
+              "phrase19": {
+                "text": "oye",
+                "language": "es"
+              }
             },
             "meanings": {
               "meaning0": {
