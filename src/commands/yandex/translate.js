@@ -53,7 +53,7 @@ exports.handler = (argv) => {
   dcont.push(argv.query)
   if (argv._.length > 1) {
     for (let i = 0; i <= argv._.length - 1; i++) {
-      if (argv._[i] !== 'yx' && argv._[i] !== 'tr') dcont.push(argv._[i])
+      if (argv._[i] !== 'yandex' && argv._[i] !== 'yx' && argv._[i] !== 'translate' && argv._[i] !== 'tr') dcont.push(argv._[i])
     }
   }
   let words = ''
