@@ -41,22 +41,22 @@ toloko has a built-in help system for CLI parameters and options. Access it with
 Here are some examples:
     
     // Get a translated sentence with the word 'tree' in German from Glosbe
-    toloko gl ex --source eng --target deu tree
+    toloko glosbe example --source eng --target deu tree
     
     // Translate 'despues' from Spanish to English using Hablaa
-    toloko ha tr -s spa -t eng despues
+    toloko hablaa translate -s spa -t eng despues
     
     // List Hablaa's supported languages
-    toloko ha ls
+    toloko hablaa list
     
     // Translate 'hello' from English to Russian using Yandex
-    toloko yx tr --dir en-ru hello
+    toloko yandex translate --dir en-ru hello
     
     // Detect language using Yandex
-    toloko yx dt привет
+    toloko yandex detect привет
     
     // List Yandex's supported languages
-    toloko yx ls
+    toloko yandex list
 
 See the [tests](https://github.com/drawnepicenter/toloko/blob/master/test/test.es6) for more.
 
