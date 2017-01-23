@@ -2,9 +2,6 @@
 const themes = require('../../themes')
 const tools = require('../../tools')
 
-const _ = require('lodash')
-const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 
@@ -18,8 +15,8 @@ exports.builder = {
     alias: 'l',
     desc: '2-letter ISO 639-1 language code. If set, the response will contain a list of supported language codes and corresponding names in the given language',
     default: '',
-    type: 'string',
-  },
+    type: 'string'
+  }
 }
 exports.handler = (argv) => {
   tools.checkConfig(CFILE)

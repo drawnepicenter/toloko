@@ -2,9 +2,7 @@
 const themes = require('../../themes')
 const tools = require('../../tools')
 
-const _ = require('lodash')
 const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 

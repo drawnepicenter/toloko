@@ -3,8 +3,6 @@ const themes = require('../../themes')
 const tools = require('../../tools')
 
 const _ = require('lodash')
-const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 
@@ -18,32 +16,32 @@ exports.builder = {
     alias: 'o',
     desc: 'Write cson, json, noon, plist, yaml, xml',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   force: {
     alias: 'f',
     desc: 'Force overwriting outfile',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   save: {
     alias: 'e',
     desc: 'Save flags to config file',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   dir: {
     alias: 'd',
     desc: "Translation direction. A single 2-letter ISO 639-1 language code (e.g. 'ru') or 2 codes separated by a hyphen (e.g. 'en-ru')",
     default: '',
-    type: 'string',
-  },
+    type: 'string'
+  }
 }
 exports.handler = (argv) => {
   tools.checkConfig(CFILE)
   let config = noon.load(CFILE)
   const userConfig = {
-    dir: argv.d,
+    dir: argv.d
   }
   if (config.merge) config = _.merge({}, config, userConfig)
   if (argv.e && config.merge) noon.save(CFILE, config)
@@ -54,9 +52,9 @@ exports.handler = (argv) => {
   const dcont = []
   dcont.push(argv.query)
   if (argv._.length > 1) {
-    _.each(argv._, (value) => {
-      if (value !== 'yx' && value !== 'tr') dcont.push(value)
-    })
+    for (let i = 0; i <= argv._.length - 1; i++) {
+      if (argv._[i] !== 'yx' && argv._[i] !== 'tr') dcont.push(argv._[i])
+    }
   }
   let words = ''
   if (dcont.length > 1) {
@@ -74,7 +72,7 @@ exports.handler = (argv) => {
   const tofile = {
     type: 'yandex',
     function: 'translate',
-    src: 'http://translate.yandex.com',
+    src: 'http://translate.yandex.com'
   }
   http({ url }, (error, response) => {
     if (!error && response.statusCode === 200) {

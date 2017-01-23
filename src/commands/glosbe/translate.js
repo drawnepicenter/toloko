@@ -3,14 +3,12 @@ const themes = require('../../themes')
 const tools = require('../../tools')
 
 const _ = require('lodash')
-const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 
 const CFILE = `${process.env.HOME}/.toloko.noon`
 
-function labelWord(word, theme) {
+function labelWord (word, theme) {
   if (word.text) themes.label(theme, 'down', 'Text', word.text)
   if (word.language) themes.label(theme, 'down', 'Language', word.language)
 }
@@ -23,38 +21,38 @@ exports.builder = {
     alias: 'o',
     desc: 'Write cson, json, noon, plist, yaml, xml',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   force: {
     alias: 'f',
     desc: 'Force overwriting outfile',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   save: {
     alias: 'e',
     desc: 'Save flags to config file',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   source: {
     alias: 's',
     desc: '3-letter ISO 693-3 source language code (Required)',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   target: {
     alias: 't',
     desc: '3-letter ISO 693-3 target language code (Required)',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   author: {
     alias: 'a',
     desc: 'Show authors',
     default: false,
-    type: 'boolean',
-  },
+    type: 'boolean'
+  }
 }
 exports.handler = (argv) => {
   tools.checkConfig(CFILE)
@@ -62,7 +60,7 @@ exports.handler = (argv) => {
   const userConfig = {
     source: argv.s,
     target: argv.t,
-    author: argv.a,
+    author: argv.a
   }
   if (config.merge) config = _.merge({}, config, userConfig)
   if (argv.e && config.merge) noon.save(CFILE, config)
@@ -73,9 +71,9 @@ exports.handler = (argv) => {
   const dcont = []
   dcont.push(argv.query)
   if (argv._.length > 1) {
-    _.each(argv._, (value) => {
-      if (value !== 'gl' && value !== 'tr') dcont.push(value)
-    })
+    for (let i = 0; i <= argv._.length - 1; i++) {
+      if (argv._[i] !== 'gl' && argv._[i] !== 'tr') dcont.push(argv._[i])
+    }
   }
   let words = ''
   if (dcont.length > 1) {
@@ -94,7 +92,7 @@ exports.handler = (argv) => {
   const tofile = {
     type: 'glosbe',
     function: 'translate',
-    src: 'http://glosbe.com',
+    src: 'http://glosbe.com'
   }
   http({ url }, (error, response) => {
     if (!error && response.statusCode === 200) {
@@ -122,7 +120,7 @@ exports.handler = (argv) => {
         }
         if (argv.a) {
           themes.label(theme, 'right', 'Authors')
-          const keys = _.keys(body.authors)
+          const keys = tools.keys(body.authors)
           tofile.authors = {}
           for (let k = 0; k <= keys.length - 1; k++) {
             const id = keys[k]

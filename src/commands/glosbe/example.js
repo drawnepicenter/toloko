@@ -1,10 +1,7 @@
-/* eslint no-unused-vars: 0 */
 const themes = require('../../themes')
 const tools = require('../../tools')
 
 const _ = require('lodash')
-const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 
@@ -18,44 +15,44 @@ exports.builder = {
     alias: 'o',
     desc: 'Write cson, json, noon, plist, yaml, xml',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   force: {
     alias: 'f',
     desc: 'Force overwriting outfile',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   save: {
     alias: 'e',
     desc: 'Save flags to config file',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   source: {
     alias: 's',
     desc: '3-letter ISO 693-3 source language code (Required)',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   target: {
     alias: 't',
     desc: '3-letter ISO 693-3 target language code (Required)',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   page: {
     alias: 'p',
     desc: 'Page of results to be displayed (200 Max)',
     default: 1,
-    type: 'number',
+    type: 'number'
   },
   size: {
     alias: 'z',
     desc: 'Size of the result page (30 Max)',
     default: 1,
-    type: 'number',
-  },
+    type: 'number'
+  }
 }
 exports.handler = (argv) => {
   tools.checkConfig(CFILE)
@@ -64,7 +61,7 @@ exports.handler = (argv) => {
     source: argv.s,
     target: argv.t,
     page: argv.p,
-    size: argv.z,
+    size: argv.z
   }
   if (config.merge) config = _.merge({}, config, userConfig)
   if (argv.e && config.merge) noon.save(CFILE, config)
@@ -75,9 +72,9 @@ exports.handler = (argv) => {
   const dcont = []
   dcont.push(argv.query)
   if (argv._.length > 1) {
-    _.each(argv._, (value) => {
-      if (value !== 'gl' && value !== 'ex') dcont.push(value)
-    })
+    for (let i = 0; i <= argv._.length; i++) {
+      if (argv._[i] !== 'gl' && argv._[i] !== 'ex') dcont.push(argv._[i])
+    }
   }
   let words = ''
   if (dcont.length > 1) {
@@ -98,7 +95,7 @@ exports.handler = (argv) => {
   const tofile = {
     type: 'glosbe',
     function: 'examples',
-    src: 'http://glosbe.com',
+    src: 'http://glosbe.com'
   }
   http({ url }, (error, response) => {
     if (!error && response.statusCode === 200) {
@@ -107,14 +104,12 @@ exports.handler = (argv) => {
       if (body.result === 'ok') {
         console.log(`Found ${body.found} results. Page ${body.page}, size ${body.pageSize} items.`)
         tofile.examples = {}
-        let i = 0
-        _.map(body.examples, (value) => {
-          themes.label(theme, 'right', 'Author', value.author)
-          themes.label(theme, 'right', 'Example', value.first)
-          themes.label(theme, 'right', 'Translation', value.second)
-          tofile.examples[[`example${i}`]] = value
-          i++
-        })
+        for (let i = 0; i <= body.examples.length - 1; i++) {
+          themes.label(theme, 'right', 'Author', body.examples[i].author)
+          themes.label(theme, 'right', 'Example', body.examples[i].first)
+          themes.label(theme, 'right', 'Translation', body.examples[i].second)
+          tofile.examples[[`example${i}`]] = body.examples[i]
+        }
       }
       if (argv.o) tools.outFile(argv.o, argv.f, tofile)
     } else {

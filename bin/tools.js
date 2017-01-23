@@ -20,6 +20,10 @@
   * @public
   * @param {string} file Configuration filepath
   */exports.checkConfig=function(file){try{fs.statSync(file);}catch(e){if(e.code==='ENOENT')throw new Error('No config found at '+file+', run: \'toloko config init\'');}return true;};/**
+ * Gets the keys for an object
+ * @param  {object} obj any object
+ * @return {array}     An array of keys
+ */exports.keys=function(obj){var keys=[];for(var key in obj){keys.push(key);}return keys;};/**
   * Checks if object is a single string in an array
   * @public
   * @param {Object} obj Any object

@@ -1,10 +1,7 @@
-/* eslint no-unused-vars: 0 */
 const themes = require('../../themes')
 const tools = require('../../tools')
 
 const _ = require('lodash')
-const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 
@@ -18,39 +15,39 @@ exports.builder = {
     alias: 'o',
     desc: 'Write cson, json, noon, plist, yaml, xml',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   force: {
     alias: 'f',
     desc: 'Force overwriting outfile',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   save: {
     alias: 'e',
     desc: 'Save flags to config file',
     default: false,
-    type: 'boolean',
+    type: 'boolean'
   },
   source: {
     alias: 's',
     desc: '3-letter ISO 693-3 source language code (Required)',
     default: '',
-    type: 'string',
+    type: 'string'
   },
   target: {
     alias: 't',
     desc: '3-letter ISO 693-3 target language code (Required)',
     default: '',
-    type: 'string',
-  },
+    type: 'string'
+  }
 }
 exports.handler = (argv) => {
   tools.checkConfig(CFILE)
   let config = noon.load(CFILE)
   const userConfig = {
     source: argv.s,
-    target: argv.t,
+    target: argv.t
   }
   if (config.merge) config = _.merge({}, config, userConfig)
   if (argv.e && config.merge) noon.save(CFILE, config)
@@ -61,9 +58,9 @@ exports.handler = (argv) => {
   const dcont = []
   dcont.push(argv.query)
   if (argv._.length > 1) {
-    _.each(argv._, (value) => {
-      if (value !== 'ha' && value !== 'tr') dcont.push(value)
-    })
+    for (let i = 0; i <= argv._.length - 1; i++) {
+      if (argv._[i] !== 'ha' && argv._[i] !== 'tr') dcont.push(argv._[i])
+    }
   }
   let words = ''
   if (dcont.length > 1) {
@@ -76,7 +73,7 @@ exports.handler = (argv) => {
   const tofile = {
     type: 'hablaa',
     function: 'translate',
-    src: 'http://hablaa.com',
+    src: 'http://hablaa.com'
   }
   http({ url }, (error, response) => {
     if (!error && response.statusCode === 200) {

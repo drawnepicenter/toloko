@@ -1,10 +1,7 @@
-/* eslint max-len: 0, no-unused-vars: 0 */
+/* eslint max-len: 0 */
 const themes = require('../../themes')
 const tools = require('../../tools')
 
-const _ = require('lodash')
-const chalk = require('chalk')
-const fs = require('fs')
 const http = require('good-guy-http')()
 const noon = require('noon')
 
@@ -18,8 +15,8 @@ exports.builder = {
     alias: 'h',
     desc: 'A comma-separated list of the most likely languages (optional)',
     default: '',
-    type: 'string',
-  },
+    type: 'string'
+  }
 }
 exports.handler = (argv) => {
   tools.checkConfig(CFILE)

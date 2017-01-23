@@ -17,7 +17,7 @@ const xml2js = require('xml2js')
   * @param {string} path The filename to check.
   * @return {boolean} fileExists
   */
-function checkOutfile(path) {
+function checkOutfile (path) {
   let fileExists = null
   try {
     fs.statSync(path)
@@ -64,6 +64,19 @@ exports.checkConfig = (file) => {
     if (e.code === 'ENOENT') throw new Error(`No config found at ${file}, run: 'toloko config init'`)
   }
   return true
+}
+
+/**
+ * Gets the keys for an object
+ * @param  {object} obj any object
+ * @return {array}     An array of keys
+ */
+exports.keys = (obj) => {
+  const keys = []
+  for (const key in obj) {
+    keys.push(key)
+  }
+  return keys
 }
 
 /**
