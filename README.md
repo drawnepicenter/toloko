@@ -86,6 +86,7 @@ These following links can help you use Toloko or perform related tasks.
 - A list of ISO 639-1 and 639-2 [language codes](http://www.loc.gov/standards/iso639-2/php/English_list.php) can be helpful in setting the source and target languages.
 - [Google Translate](http://translate.google.com) is not perfect, but it does perform translation & transliteration in realtime (as you type). It even provides sound clips (some pre-recorded, some synthesized).
 - [Yandex Translate](https://translate.yandex.com/) is similar to Google Translate
+- [Frengly](http://www.frengly.com/translate) is yet another
 - [Omniglot](http://www.omniglot.com) is an amazing resource for learning about languages, writing systems, and related topics.
 - [translit.cc](http://translit.cc/) Translation & transliteration services w/ virtual keyboards for Armenian, Belarusian, Bulgarian, Georgian, Greek, Russian, and Ukranian, plus other useful tools like spell-checking.
 - [romaji.me](http://romaji.me/) Transliterate between Japanese text (Kanji, Hiragana, Katakana) and English.
