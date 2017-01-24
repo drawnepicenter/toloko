@@ -16,6 +16,16 @@ _Toloko_ is [Sesotho](http://www.omniglot.com/writing/sesotho.htm) for **interpr
 
 Toloko is a text translation tool for the command line that supports dozens of source and target languages. It requires a terminal emulator that supports UTF-8 encoding; I prefer [Terminator](http://gnometerminator.blogspot.com/p/introduction.html). For more info, see the [wiki](https://github.com/drawnepicenter/toloko/wiki).
 
+## Platform
+
+Looking for testers on OSX. Well tested on Linux. Will test on Windows.
+Supported Node.js versions:
+
+- 7.x
+- 6.x
+- 5.x
+- 4.x - Works but it's really slow
+
 ## Installation
 
 To initialize the config file and load themes, your NODE_PATH environment variable must point to the **lib/node_modules** directory of the Node.js installation. You can set this path automatically like this:
