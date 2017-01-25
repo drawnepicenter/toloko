@@ -1,6 +1,6 @@
 {
   "name": "toloko",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A command line tool for translating words.",
   "author": "Andrew Prentice",
   "license": "MIT",
