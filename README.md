@@ -1,10 +1,6 @@
 # toloko
 
-[![Build Status](https://travis-ci.org/drawnepicenter/toloko.svg?branch=master)](https://travis-ci.org/drawnepicenter/toloko) [![Dependency Status](https://gemnasium.com/badges/github.com/drawnepicenter/toloko.svg)](https://gemnasium.com/github.com/drawnepicenter/toloko) [![Greenkeeper badge](https://badges.greenkeeper.io/drawnepicenter/toloko.svg)](https://greenkeeper.io/) [![Code Coverage](https://codeclimate.com/github/drawnepicenter/toloko/badges/coverage.svg)](https://codeclimate.com/github/drawnepicenter/toloko/coverage) [![Code Climate](https://codeclimate.com/github/drawnepicenter/toloko/badges/gpa.svg)](https://codeclimate.com/github/drawnepicenter/toloko) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) [![Git Town](https://img.shields.io/badge/workflow-git%20town-brightgreen.svg)](http://www.git-town.com/)
-
-[![npm version](https://badge.fury.io/js/toloko.svg)](https://badge.fury.io/js/toloko) [![Downloads](https://img.shields.io/npm/dt/toloko.svg)](https://www.npmjs.com/package/toloko) [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version) [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) [![Semver 2.0.0](https://img.shields.io/badge/semver-2.0.0-ff69b4.svg)](http://semver.org/spec/v2.0.0.html)
-
-[![Powered by Glosbe](https://img.shields.io/badge/powered%20by-glosbe-brightgreen.svg)](https://glosbe.com/) [![Powered by Hablaa](https://img.shields.io/badge/powered%20by-hablaa-green.svg)](http://hablaa.com) [![Powered by Yandex](https://img.shields.io/badge/powered%20by-yandex-yellow.svg)](https://yandex.com/)
+[![Build Status](https://travis-ci.org/drawnepicenter/toloko.svg?branch=master)](https://travis-ci.org/drawnepicenter/toloko) [![Dependency Status](https://gemnasium.com/badges/github.com/drawnepicenter/toloko.svg)](https://gemnasium.com/github.com/drawnepicenter/toloko) [![npm version](https://badge.fury.io/js/toloko.svg)](https://badge.fury.io/js/toloko) [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 [![toloko](icon.png)](http://raw.githubusercontent.com/drawnepicenter/toloko/master/icon.png)
 
@@ -37,7 +33,7 @@ To initialize the config file and load themes, your NODE_PATH environment variab
     export BP=${NP%bin/node} #this replaces the string '/bin/node'
     export LP="${BP}lib/node_modules"
     export NODE_PATH="$LP"
-    
+
 Provided these lines are towards the end of the shell initialization file (at least after any NVM stuff) this should work for a system installation of Node.js and [nvm](https://github.com/creationix/nvm).
 
 - Put your [Yandex API key](https://translate.yandex.com/developers) into an environment variable **YANDEX**
@@ -46,7 +42,7 @@ Add all of this to .bashrc, .zshrc, etc. then:
 
     npm install -g toloko
     toloko config init
-  
+
 ### Windows installation
 
 I highly recommend using [nodist](https://github.com/marcelklehr/nodist) to install Node.js on Windows. It automatically sets %NODE_PATH% for you, though you may have to edit it to make sure it doesn't contain itself (i.e. C:\...\...\node_modules;%NODE_PATH%). If you install Node.js manually, `npm install --global leximaven` will install the package in C:\Users\username\AppData\Roaming\npm\node_modules. And if you just do `npm install leximaven` then it will install the package to a subfolder of the Node.js installation, but that won't be the NODE_PATH folder unless you manually set it. Either way, you're going to have to mess around with Windows environment variables to get it to work. And don't forget to put your [Yandex API key](https://translate.yandex.com/developers) into an environment variable **YANDEX**
@@ -58,22 +54,22 @@ As for getting the ANSI color escape codes to work, [Cmder](http://cmder.net/) s
 toloko has a built-in help system for CLI parameters and options. Access it with `toloko -h|--help [command] [subcommand]`. There is also the [wiki](https://github.com/drawnepicenter/toloko/wiki).
 
 Here are some examples:
-    
+
     // Get a translated sentence with the word 'tree' in German from Glosbe
     toloko glosbe example --source eng --target deu tree
-    
+
     // Translate 'despues' from Spanish to English using Hablaa
     toloko hablaa translate -s spa -t eng despues
-    
+
     // List Hablaa's supported languages
     toloko hablaa list
-    
+
     // Translate 'hello' from English to Russian using Yandex
     toloko yandex translate --dir en-ru hello
-    
+
     // Detect language using Yandex
     toloko yandex detect привет
-    
+
     // List Yandex's supported languages
     toloko yandex list
 
@@ -91,15 +87,13 @@ These following links can help you use Toloko or perform related tasks.
 - [translit.cc](http://translit.cc/) Translation & transliteration services w/ virtual keyboards for Armenian, Belarusian, Bulgarian, Georgian, Greek, Russian, and Ukranian, plus other useful tools like spell-checking.
 - [romaji.me](http://romaji.me/) Transliterate between Japanese text (Kanji, Hiragana, Katakana) and English.
 
-## Gratitude
+## License
 
-Many thanks to all contributors to the libraries used in this project! And thanks to the creators and maintainers of the APIs that this tool consumes. Glosbe, Hablaa and Yandex are awesome!
+MIT :copyright: 2017 Andrew Prentice
 
-Powered by [Glosbe](http://glosbe.com)
+## Powered by
 
-Powered by [Hablaa](http://hablaa.com/)
-
-Powered by [Yandex.Translate](http://translate.yandex.com)
+[Glosbe](http://glosbe.com), [Hablaa](http://hablaa.com/), and [Yandex.Translate](http://translate.yandex.com)
 
 ## Extras
 
