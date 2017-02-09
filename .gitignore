@@ -13,3 +13,4 @@ jsdoc.conf.json
 data
 .nvmrc
 extra
+lcov.info
