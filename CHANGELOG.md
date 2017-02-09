@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.2"></a>
+## [0.2.2](https://github.com/drawnepicenter/toloko/compare/v0.2.1...v0.2.2) (2017-02-09)
+
+
+### Bug Fixes
+
+* **project:** aliases in help screen not highlighted ([672ff0e](https://github.com/drawnepicenter/toloko/commit/672ff0e))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/drawnepicenter/toloko/compare/v0.2.0...v0.2.1) (2017-01-25)
 
